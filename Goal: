@@ -18,3 +18,81 @@ Fairbairn, Ka'imi HOU PK	8.10X	12.10S	20.20	10.100
 Mevis, Harrison LAR PK	12.80S	9.40X	22.20	11.100
 49ers, San Francisco SFO Def	2.00S	2.00X	4.00	2.000
 Texans, Houston HOU Def
+
+Objective:
+Maximize the probability of winning a Survivor-style NFL fantasy playoff league, where each player can only be used once total during the playoff weeks.
+
+Core Constraints:
+
+A player cannot be started again once used.
+
+All decisions must account for future playoff rounds, not just the current week.
+
+Ceiling (high-upside weeks) matters more than season-long averages.
+
+Primary Strategy:
+
+Preserve elite, high-ceiling players (QB, RB, WR) for later rounds unless their matchup strongly favors a spike week.
+
+Spend volatile positions early:
+
+Defense
+
+Kicker
+
+Secondary TEs
+
+Avoid burning star players in low-projection or high-variance matchups.
+
+Evaluation Criteria (in order of importance):
+
+Weekly ceiling potential (not floor)
+
+Matchup quality (opponent defense, pace, implied total)
+
+Roster scarcity (positions with fewer viable options later)
+
+Remaining depth at that position
+
+Opponent survivor paths (blocking or forcing weak options)
+
+Position Priorities:
+
+RBs: Most valuable survivor assets; prioritize saving top-tier RBs for later rounds.
+
+QBs: Elite QBs should be held unless matchup is ideal.
+
+WRs: One elite WR per round is acceptable; avoid wasting them in low-total games.
+
+TEs: Use mid-tier TEs early; save elite TE only if positional scarcity demands it.
+
+Defense/Kicker: Use best matchup this week; do not plan long-term around them.
+
+Win Condition:
+Enter the final playoff week with:
+
+At least one elite RB
+
+One top-tier QB or WR
+
+Avoid being forced into low-upside or replacement-level starters
+
+Failure Conditions to Avoid:
+
+Using elite players for sub-10 point outcomes
+
+Saving too many players and losing earlier rounds
+
+Ignoring opponent usage paths and survivor exhaustion
+
+Output Expectations for the AI Agent:
+
+Recommend optimal lineup per week
+
+Track used vs unused players
+
+Forecast future weeks’ scarcity
+
+Identify must-save vs expendable players
+
+Justify decisions with ceiling-based logic
