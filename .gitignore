@@ -38,3 +38,6 @@ Thumbs.db
 /tmp/
 *.tmp
 *.log
+
+# Test outputs
+optimizer_output.txt
