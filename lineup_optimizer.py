@@ -282,12 +282,30 @@ def main():
     # Print results
     optimizer.print_lineup(lineup, reasons)
     
+    # Dynamic strategy notes based on actual selections
     print("\nSTRATEGY NOTES:")
     print("-"*70)
-    print("• Drake Maye selected as required QB")
-    print("• Preserving elite RBs (Kenneth Walker III, Christian McCaffrey) when possible")
-    print("• Preserving elite WRs (Puka Nacua) for later rounds")
-    print("• Using mid-tier TEs to save elite options")
+    
+    # Get elite players used and preserved
+    lineup_players = optimizer._flatten_lineup(lineup)
+    elite_used = [p for p in lineup_players if p.is_elite()]
+    elite_preserved = []
+    for pos in ['QB', 'RB', 'WR', 'TE']:
+        available = optimizer.get_available_by_position(pos)
+        elite_preserved.extend([p for p in available if p.is_elite() and p not in lineup_players])
+    
+    print(f"• {lineup['QB'].name} selected as required QB")
+    
+    if elite_used:
+        print(f"• Using {len(elite_used)} elite player(s) this week for optimal ceiling:")
+        for p in elite_used:
+            print(f"  - {p.name} ({p.position}): {p.get_best_week_score():.1f} ceiling")
+    
+    if elite_preserved:
+        print(f"• Preserving {len(elite_preserved)} elite player(s) for later rounds:")
+        for p in elite_preserved:
+            print(f"  - {p.name} ({p.position}): {p.get_best_week_score():.1f} ceiling")
+    
     print("• Kicker and Defense selected based on best available (volatile positions)")
     print("• Total lineup provides strong ceiling potential while keeping elite assets")
     print("="*70)
